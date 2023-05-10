@@ -1,0 +1,16 @@
+body {
+    background-color: #69C8FE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.card {
+    margin: auto;
+}
+  /* From https://developer.mozilla.org/en-US/docs/Web/CSS/@media */
+@media (min-width: 576px) {
+  .card {
+    margin-top: 50px;
+  }
+}
