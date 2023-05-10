@@ -1,14 +1,18 @@
+#Libraries
 from flask import *
 from database import init_db, db_session
-from models import *
 from civpol import * 
 
+#Initializing Objects & Secret Key
 civpol = CivPol()
 civpol.run()
 
 app = Flask(__name__)
 
 app.secret_key = "alH6Ez6WF48O+MDUWQ=="
+
+#Routes
+#Each route, except for login and setup, is inaccessible to those who have not logged in. Likewise if the user is logged in, login and signup are inaccessible.
 
 @app.route("/", methods=("GET", "POST"))
 def login():
@@ -20,7 +24,7 @@ def login():
             password = request.form["password"]
 
             code = civpol.loginUser(username, password)
-
+            #These Codes let the classses be less intrusive on one another. 0 is for success and the rest is for a type of failure. They are essentially safeguards for the user.
             if code == 0:
                 session["username"] = username
                 return redirect(url_for("issues"))
@@ -45,6 +49,7 @@ def signup():
             password = request.form["password"]
             confirmPassword = request.form["confirmPassword"]
 
+            #These Codes let the classses be less intrusive on one another. 0 is for success and the rest is for a type of failure. They are essentially safeguards for the user.
             if password == confirmPassword:
                 code = civpol.registerUser(username, email, displayName, password)
                 if code == 0:
@@ -68,6 +73,7 @@ def issues():
         if request.method == "GET":
             return render_template("issues.html", issueList=civpol.issueFeed())
         elif request.method == "POST":
+            #Differentiates between types of submissions as this page has two.
             if "issueNum" in request.form:
                 revIssue = request.form["issueNum"]
                 revIssueNum = int(revIssue)
@@ -100,7 +106,6 @@ def policies():
 @app.route("/profile")
 def profile():
     if "username" in session:
-        print(civpol.issuesNum)
         return render_template("profile.html", user=civpol.currentUser, dateOfCreation=civpol.dateOfCreation(), issues=civpol.issuesNum(), policies=civpol.policiesNum())
     else:
         return redirect(url_for("login"))
