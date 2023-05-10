@@ -1,0 +1,25 @@
+{% extends "base-addition.html" %}
+{% set active_page = "policies" %}
+
+{% block feed %}
+    {% block extraStyle %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/policy-style.css')}}">
+    {% endblock %}
+    
+    {% for policy in policyList %}
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">{{policy.title}}</h5>
+                    <small>{{policy.user.display_name}}</small>
+                </div>
+                <div class="card-body">
+                    <p>{{policy.content}}</p>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <p class="last-resort">Be the first to create a policy in this issue!</p>
+    {% endfor %}
+
+{% endblock %}

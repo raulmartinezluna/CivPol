@@ -1,0 +1,26 @@
+{% extends "base-addition.html" %}
+{% set active_page = "issues" %}
+
+{% block feed %}
+    {% block extraStyle %}
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/issues-style.css')}}">
+    {% endblock %}
+
+    {% for issue in issueList %}
+        <div class="container">
+            <form class="card" action="#" method="POST">
+                <button type="submit" class="btn card-btn" name="issueNum" value={{loop.index}}>
+                    <div class="card-header">
+                        <h6 class="mb-0">{{issue.title}}</h6>
+                        <small>{{issue.user.display_name}}</small>
+                    </div>
+                    <div class="card-body">
+                        <p>{{issue.content}}</p>
+                    </div>
+                </button>
+            </form>
+        </div>    
+    {% else %}
+        <p class="last-resort">Be the first to create an issue!</p>
+    {% endfor %}
+{% endblock %}

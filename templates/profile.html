@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% set active_page = "settings" %}
+
+{% block style %}
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/profile-style.css')}}">
+{% endblock %}
+
+{% block content %}
+  <!-- User information -->
+  <div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+          <h4>User Information</h4>
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>Display Name:</strong> <span>{{user.display_name}}<span> </li>
+            <li><strong>Username:</strong> <span>{{user.username}}<span></li>
+            <li><strong>Date of Creation:</strong> <span>{{dateOfCreation}}<span></li>
+            <li><strong>Number of Issues Opened:</strong> <span>{{issues}}<span></li>
+            <li><strong>Number of Policies Created:</strong> <span>{{policies}}<span></li>
+          </ul>
+        </div>
+      </div>
+  </div>
+{% endblock %}

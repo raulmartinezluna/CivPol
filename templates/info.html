@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>User Information</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <style>
+          body {
+            background-color: #f8f9fa;
+          }
+          .navbar {
+            background-color: #69C8FE;
+            color: #fff;
+          }
+          .navbar-brand {
+            font-weight: bold;
+          }
+          .nav-link {
+            color: #fff;
+            font-weight: bold;
+          }
+          .tab-content {
+            margin-top: 30px;
+          }
+          .card {
+            margin-bottom: 30px;
+          }
+        </style>
+      </head>
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">CivPol</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="issues.html">Issues</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="policies.html">Policies</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Settings
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="profile.html">Profile</a>
+                  <a class="dropdown-item" href="#">Logout</a>
+                </div>
+              </li>
+            </ul>
+        </div>
+        </nav>
+
+        <!-- User information -->
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-header">
+                  <h4>User Information</h4>
+                </div>
+                <div class="card-body">
+                  <ul>
+                    <li><strong>Display Name:</strong> John Doe</li>
+                    <li><strong>Username:</strong> jdoe</li>
+                    <li><strong>Date of Creation:</strong> January 1, 2022</li>
+                    <li><strong>Number of Issues Opened:</strong> 10</li>
+                    <li><strong>Number of Policies Created:</strong> 5</li>
+                    <li><strong>Popularity:</strong> 80%</li>
+                  </ul>
+                </div>
+              </div>
+        </div>
+
+        <!-- Bootstrap JS and jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
